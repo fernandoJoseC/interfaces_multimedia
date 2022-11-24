@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<!-- aqui va el enlace con el head -->
+{% include "comun/estilos.html" %}
+<body>
+    <div class="container">
+        {% include "comun/header.html" %}
+        <!-- dejar marcado el area de trabajo -->
+        {% block content %}
+        {% endblock %}
+        <!-- llamar al bloque de pie de pagina-->
+        {% include "comun/footer.html" %}
+    </div>
+</body>
+</html>
