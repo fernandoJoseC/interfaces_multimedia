@@ -19,7 +19,10 @@ from django.views import View
 
 class Index(View):
     def get(self, request):
-        return render(request, 'presentacion/index.html', {} )
+        #crear clase 
+        categorias = Emprendimiento.objects.all()
+        #print(categorias)
+        return render(request, 'presentacion/index.html', {'categorias':categorias} )
 
 
 

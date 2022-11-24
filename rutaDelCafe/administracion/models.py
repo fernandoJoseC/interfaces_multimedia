@@ -4,17 +4,22 @@ from django.db import models
 
 # Usaremos el diagrama de clases
 
+
 class Emprendimiento(models.Model):
 
-    """TIPO_EMPRENDIMIENTO_CHOICES = [
-        ('hospedaje', 'Hospedaje'),
-        ('restaurante', 'Restaurante'),
-        ('paradaTuristica', 'Paradas Turisticas'),
-
+    TIPOS_CALIFICACION_CHOICES = [
+        ('bueno', 'Bueno'),
+        ('malo', 'Malo'),
+        ('regular', 'Regular'),
+        ('normal', 'Normal'),
+        ('excelentes', 'Excelente'),
     ]
 
-    tipoEmprendimiento = models.CharField(
-        verbose_name="Tipo de emprendimiento", choices=TIPO_EMPRENDIMIENTO_CHOICES, max_length=20)"""
+    DISPONIBILIDAD_CHOICES = [
+        ('si', 'Si'),
+        ('no', 'No'),
+    ]
+
     nombreEmprendiento = models.CharField(
         verbose_name="Nombre del Emprendimiento", max_length=500)
     direccionEmprendiento = models.CharField(
@@ -28,8 +33,14 @@ class Emprendimiento(models.Model):
     latitud = models.CharField(verbose_name="Latitud", max_length=50)
     altitud = models.CharField(verbose_name="Altitud", max_length=50)
     imagen = models.ImageField(upload_to="fotosEmprendimiento",
-                             verbose_name="Subir su foto del emprendimiento", blank=True, null=True)
-    video = models.URLField(verbose_name="video promocional", blank=True, null=True)
+                               verbose_name="Subir su foto del emprendimiento", blank=True, null=True)
+    video = models.URLField(
+        verbose_name="video promocional", blank=True, null=True)
+    disponibilidad = models.CharField(
+        verbose_name="disponibilidad", max_length=3, choices=DISPONIBILIDAD_CHOICES)
+    calificacion = models.CharField(
+        verbose_name="Calificacion", max_length=20, choices=TIPOS_CALIFICACION_CHOICES)
+    resena = models.CharField(verbose_name="Resena", max_length=500)
 
     def __str__(self):
         return self.nombreEmprendiento
@@ -37,7 +48,7 @@ class Emprendimiento(models.Model):
     class Meta:
         verbose_name = "Emprendiento"
         verbose_name_plural = "Emprendientos"
-    
+
 
 # todo falta add fotos
 
@@ -97,8 +108,8 @@ class Emprendedor(Persona):
     emprendimientos = models.ManyToManyField(Emprendimiento, blank=True)
 
     class Meta:
-            verbose_name = "Emprendedor"
-            verbose_name_plural = "Emprendedores"
+        verbose_name = "Emprendedor"
+        verbose_name_plural = "Emprendedores"
 
 # todo
 # falta el de servicios
@@ -107,7 +118,7 @@ class Emprendedor(Persona):
 class Servicios(models.Model):
 
     TIPOS_SERVICIO_CHOICES = [
-        ('ventaProductos','Venta de productos'),
+        ('ventaProductos', 'Venta de productos'),
         ('servicioRestaurante', 'Alojamiento'),
         ('produccionProductos', 'Produccion de productos'),
         ('atractivoTuristico', 'Atractivo Turistico'),
@@ -116,43 +127,29 @@ class Servicios(models.Model):
         ('piscina', 'Piscina'),
         ('camping', 'Camping'),
         ('caminata', 'Caminata'),
-        ('cabalgata','Cabalgata'),
+        ('cabalgata', 'Cabalgata'),
         ('recreacion', 'Recreacion'),
         ('comidaTipica', 'Comida Tipica'),
-        ('comidaRapida','Comida Rapida'),
+        ('comidaRapida', 'Comida Rapida'),
         ('comidaCoreana', 'Comida Coreana'),
     ]
 
-    TIPOS_CALIFICACION_CHOICES = [
-        ('bueno', 'Bueno'),
-        ('malo', 'Malo'),
-        ('regular', 'Regular'),
-        ('normal', 'Normal'),
-        ('excelentes', 'Excelente'),
-    ]
-
-    DISPONIBILIDAD_CHOICES = [
-        ('si', 'Si'),
-        ('no','No'),
-    ]
-
-    nombreServicio = models.CharField(verbose_name="Nombre del Servicio", max_length=500)
-    tipoServicio = models.CharField(verbose_name="Tipo de servicio", max_length=20, choices=TIPOS_SERVICIO_CHOICES)
-    resena = models.CharField(verbose_name="Resena", max_length=500)
-    calificacion = models.CharField(verbose_name="Calificacion", max_length=20, choices=TIPOS_CALIFICACION_CHOICES)
+    #nombreServicio = models.CharField(verbose_name="Nombre del Servicio", max_length=500)
+    #tipoServicio = models.CharField(verbose_name="Tipo de servicio", max_length=20, choices=TIPOS_SERVICIO_CHOICES)
     precio = models.CharField(verbose_name="Precio", max_length=6)
-    disponibilidad = models.CharField(verbose_name="disponibilidad", max_length=3, choices=DISPONIBILIDAD_CHOICES)
-    descripcionServicio = models.CharField(verbose_name="Descripcion del Servicio", max_length=500)
-
+    descripcionServicio = models.CharField(
+        verbose_name="Descripcion del Servicio", max_length=500)
 
 
 class Reservas(models.Model):
     fechaLlegada = models.DateField(verbose_name="Ingrese la fecha de llegada")
     fechaSalida = models.DateField(verbose_name="Ingrese la fecha de salida")
-    numPersonas = models.IntegerField(verbose_name="Ingrese el numero de personas")
-    descripcion = models.CharField(verbose_name="Alguna descripcion al momento de la reserva", max_length=500)
+    numPersonas = models.IntegerField(
+        verbose_name="Ingrese el numero de personas")
+    descripcion = models.CharField(
+        verbose_name="Alguna descripcion al momento de la reserva", max_length=500)
 
-#hacer el de compra
+# hacer el de compra
 
 # o productos
 # reservas
