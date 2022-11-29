@@ -37,10 +37,10 @@ class Emprendimiento(models.Model):
     video = models.URLField(
         verbose_name="video promocional", blank=True, null=True)
     disponibilidad = models.CharField(
-        verbose_name="disponibilidad", max_length=3, choices=DISPONIBILIDAD_CHOICES)
+        verbose_name="Disponibilidad", max_length=3, choices=DISPONIBILIDAD_CHOICES, blank=True, null=True)
     calificacion = models.CharField(
-        verbose_name="Calificacion", max_length=20, choices=TIPOS_CALIFICACION_CHOICES)
-    resena = models.CharField(verbose_name="Resena", max_length=500)
+        verbose_name="Calificacion", max_length=20, choices=TIPOS_CALIFICACION_CHOICES, blank=True, null=True)
+    resena = models.CharField(verbose_name="Resena", max_length=500, blank=True, null=True)
 
     def __str__(self):
         return self.nombreEmprendiento

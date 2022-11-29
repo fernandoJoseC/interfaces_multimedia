@@ -1,4 +1,5 @@
-{% extends "comun/base.html" %} {% block content %}
+{% extends "comun/base.html" %} 
+{% block content %}
 <section>
   {%for categoria in categorias%}
   <div>
@@ -6,14 +7,14 @@
       <div class="card">
         <img class="card-img-top" src="..." alt="Card image cap" />
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title">Nombre del emprendimiento</h5>
           <p class="card-text">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
+            Breve descripcion del emprendimiento
           </p>
         </div>
         <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
+          <small class="text-muted">Horario de atencion</small>
+          <small class="text-muted">Calificacion</small>
         </div>
       </div>
     </div>
