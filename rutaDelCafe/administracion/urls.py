@@ -6,6 +6,7 @@ app_name = 'administracion'
 urlpatterns = [
     #rutas del backend de la aplicacion
     path('index', Index.as_view(), name="index"),
+    path('emprendimiento', emprendimientoIndex.as_view(), name="emprendimiento_index"),
 
     #rutas del rest api
     path('api/emprendimientos', Emprendimiento_APIView.as_view(),name = 'lista_emprendimientos'),

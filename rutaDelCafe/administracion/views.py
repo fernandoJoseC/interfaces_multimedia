@@ -17,6 +17,9 @@ from .models import Emprendimiento
 #agregamos las vistas que van a influir en la presentación
 from django.views import View
 
+#agregamos la importacion del formulario
+from .forms import reservasForm
+
 class Index(View):
     def get(self, request):
         #crear clase 
@@ -25,7 +28,21 @@ class Index(View):
         #print(categorias)
         return render(request, 'presentacion/index.html', {'emprendimientos':empremdimentos} )#, {'nombreEmprendientos':nombre_emprendientos})
 
+class emprendimientoIndex(View):
+    def get(self, request):
+        context ={}
+        context['form']= reservasForm()
+        
+        #crear clase
+        return render(request, 'emprendimiento/emprendimiento_index.html', context)
+    def post(request):
+        #metodo para grabar la informacion en la BD
+        pass
 
+class generarReservas(View):
+    pass
+
+#-------------API VIEWS-------------
 
 class Emprendimiento_APIView(APIView):
 

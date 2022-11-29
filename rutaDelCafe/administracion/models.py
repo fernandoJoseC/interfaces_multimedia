@@ -4,6 +4,30 @@ from django.db import models
 
 # Usaremos el diagrama de clases
 
+class Servicios(models.Model):
+
+    TIPOS_SERVICIO_CHOICES = [
+        ('ventaProductos', 'Venta de productos'),
+        ('servicioRestaurante', 'Alojamiento'),
+        ('produccionProductos', 'Produccion de productos'),
+        ('atractivoTuristico', 'Atractivo Turistico'),
+        ('hospedaje', 'Hospedaje'),
+        ('cafeteria', 'Cafeteria'),
+        ('piscina', 'Piscina'),
+        ('camping', 'Camping'),
+        ('caminata', 'Caminata'),
+        ('cabalgata', 'Cabalgata'),
+        ('recreacion', 'Recreacion'),
+        ('comidaTipica', 'Comida Tipica'),
+        ('comidaRapida', 'Comida Rapida'),
+        ('comidaCoreana', 'Comida Coreana'),
+    ]
+
+    #nombreServicio = models.CharField(verbose_name="Nombre del Servicio", max_length=500)
+    #tipoServicio = models.CharField(verbose_name="Tipo de servicio", max_length=20, choices=TIPOS_SERVICIO_CHOICES)
+    precio = models.CharField(verbose_name="Precio", max_length=6)
+    descripcionServicio = models.CharField(
+        verbose_name="Descripcion del Servicio", max_length=500)
 
 class Emprendimiento(models.Model):
 
@@ -41,6 +65,8 @@ class Emprendimiento(models.Model):
     calificacion = models.CharField(
         verbose_name="Calificacion", max_length=20, choices=TIPOS_CALIFICACION_CHOICES, blank=True, null=True)
     resena = models.CharField(verbose_name="Resena", max_length=500, blank=True, null=True)
+    servicios = models.ManyToManyField(Servicios)
+    #add imagen como relacion de muchos para subir varias fotos, crear una clase imagenes y videos
 
     def __str__(self):
         return self.nombreEmprendiento
@@ -114,32 +140,8 @@ class Emprendedor(Persona):
 # todo
 # falta el de servicios
 
-
-class Servicios(models.Model):
-
-    TIPOS_SERVICIO_CHOICES = [
-        ('ventaProductos', 'Venta de productos'),
-        ('servicioRestaurante', 'Alojamiento'),
-        ('produccionProductos', 'Produccion de productos'),
-        ('atractivoTuristico', 'Atractivo Turistico'),
-        ('hospedaje', 'Hospedaje'),
-        ('cafeteria', 'Cafeteria'),
-        ('piscina', 'Piscina'),
-        ('camping', 'Camping'),
-        ('caminata', 'Caminata'),
-        ('cabalgata', 'Cabalgata'),
-        ('recreacion', 'Recreacion'),
-        ('comidaTipica', 'Comida Tipica'),
-        ('comidaRapida', 'Comida Rapida'),
-        ('comidaCoreana', 'Comida Coreana'),
-    ]
-
-    #nombreServicio = models.CharField(verbose_name="Nombre del Servicio", max_length=500)
-    #tipoServicio = models.CharField(verbose_name="Tipo de servicio", max_length=20, choices=TIPOS_SERVICIO_CHOICES)
-    precio = models.CharField(verbose_name="Precio", max_length=6)
-    descripcionServicio = models.CharField(
-        verbose_name="Descripcion del Servicio", max_length=500)
-
+class Productos(models.Model):
+    pass
 
 class Reservas(models.Model):
     fechaLlegada = models.DateField(verbose_name="Ingrese la fecha de llegada")
@@ -148,8 +150,12 @@ class Reservas(models.Model):
         verbose_name="Ingrese el numero de personas")
     descripcion = models.CharField(
         verbose_name="Alguna descripcion al momento de la reserva", max_length=500)
+    #add tipo de productos a comprar para reservarlos
+    productos = models.ManyToManyField(Productos)
 
 # hacer el de compra
 
 # o productos
 # reservas
+
+#todo add en el admin
