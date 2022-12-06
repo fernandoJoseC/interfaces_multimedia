@@ -12,7 +12,7 @@ from rest_framework import status
 from .serializers import EmprendimientoSerializers
 
 #importmos el modelo
-from .models import Emprendimiento
+from .models import Emprendimiento, Servicios, Multimedia, Productos, Persona, Cliente, Administrador, Emprendedor, Reservas
 
 #agregamos las vistas que van a influir en la presentación
 from django.views import View
@@ -23,7 +23,7 @@ from .forms import reservasForm
 class Index(View):
     def get(self, request):
         #crear clase 
-        empremdimentos = Emprendimiento.objects.all()
+        emprendimientos = Emprendimiento.objects.all().order_by('nombreEmprendiento')
         #nombre_emprendientos = Emprendimiento.nombreEmprendiento
         #print(categorias)
         return render(request, 'presentacion/index.html', {'emprendimientos':empremdimentos} )#, {'nombreEmprendientos':nombre_emprendientos})
@@ -39,6 +39,12 @@ class emprendimientoIndex(View):
         #metodo para grabar la informacion en la BD
         pass
 
+'''
+class ListarEmprendimientos(View):
+    def get(self, request):
+        emprendimientos = Emprendimiento.objects.all().order_by('nombreEmprendiento')
+        return render(request, 'presentacion/index.html', {'emprendimientos':emprendimientos})
+'''
 class generarReservas(View):
     pass
 
