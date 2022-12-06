@@ -26,7 +26,7 @@ class Index(View):
         emprendimientos = Emprendimiento.objects.all().order_by('nombreEmprendiento')
         #nombre_emprendientos = Emprendimiento.nombreEmprendiento
         #print(categorias)
-        return render(request, 'presentacion/index.html', {'emprendimientos':empremdimentos} )#, {'nombreEmprendientos':nombre_emprendientos})
+        return render(request, 'presentacion/index.html', {'emprendimientos':emprendimientos} )#, {'nombreEmprendientos':nombre_emprendientos})
 
 class emprendimientoIndex(View):
     def get(self, request):
