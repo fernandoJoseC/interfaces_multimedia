@@ -1,0 +1,409 @@
+/* <================ Imports ====================>*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+
+.contenedorTodo{
+    background-color: rgb(255, 255, 255);
+    width: auto;
+    height: auto;
+}
+.container{
+    width: 100%;
+    height: 100%;
+}
+.menuOpciones{
+  height: 170px; 
+  background-color: rgb(255, 255, 255); 
+}
+.contentHorizontal{
+    background-color: rgb(255, 255, 255);
+    height: 45%;
+    display: flex;
+    border-bottom: 1px solid rgb(207, 207, 207);
+    border-top: 1px solid rgb(207, 207, 207);
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor-logo{
+    height: 100%;
+    width: 33%;
+
+}
+.logo{
+    border: 0;
+    height: 100%;
+    width: 60%;
+    background-color: transparent;
+}
+.rutacafe{
+    outline: none;
+    height: 40%;
+    width: 60%;
+    align-items: center;
+}
+.searchEmprendimientos{
+    height: 85%;
+    width: 33%;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+.buscador{
+    overflow: hidden;
+    width: 80%;
+    vertical-align: middle;
+    white-space: nowrap;
+    border-radius: 100px;
+}
+.buscador input#search{
+    width: 100%;
+    height: 50px;
+    background: #ffffff;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #4f5b66;
+    padding-left: 15px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    
+}
+.buscador{
+    box-shadow: rgb(207, 207, 207) 0px 3px 8px;
+    text-align: center;
+    vertical-align: middle;
+}
+.buscador input#search::-webkit-input-placeholder {
+    color: #4f5b66;
+}
+.buscador input#search::-moz-placeholder {  /* Firefox 19+ */
+    color: #4f5b66;  
+}  
+.buscador input#search:-ms-input-placeholder {  
+    color: #4f5b66;  
+}
+.buscador button.icon{
+    -webkit-border-top-right-radius: 100px;
+    -webkit-border-bottom-right-radius: 100px;
+    -moz-border-radius-topright: 100px;
+    -moz-border-radius-bottomright: 100px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+   
+    border: none;
+    background: rgb(207, 207, 207);
+    height: 50px;
+    width: 50px;
+    color:rgb(0, 0, 0);
+    opacity: 0;
+    font-size: 10pt;
+   
+    -webkit-transition: all .55s ease;
+    -moz-transition: all .55s ease;
+    -ms-transition: all .55s ease;
+    -o-transition: all .55s ease;
+    transition: all .55s ease;
+}
+.buscador:hover button.icon, .buscador:active button.icon, .buscador:focus button.icon{
+    outline: none;
+    opacity: 1;
+    margin-left: -50px;
+}
+.buscador:hover button.icon:hover{
+    background: rgb(207, 207, 207);
+}
+
+.inicio{
+    width: 34%;
+    height: 100%;
+    display: inline-flex; 
+    justify-content:flex-end;
+    align-items: center;
+    gap:0px 10px;
+    position: relative;
+}
+
+.idioma{
+    height: 40%;
+    display: flex;
+    vertical-align: middle;
+}
+.bidioma{
+    display: flex;
+    justify-content: space-around; 
+    border-radius: 100px; 
+    vertical-align: middle;
+    align-items: center;
+    border: none;
+    box-shadow:solid rgb(207, 207, 207)  1px 0px 3px 8px;
+    text-align: center;
+}
+.inicioSesion{
+    display: flex;
+    justify-content: flex-end;
+}
+.Perfil{
+    box-shadow: rgb(207, 207, 207) 0px 3px 8px;
+    /*modificaciones*/
+    outline: 0;
+    background: #ffffff;
+    min-width: 10%;
+    border: 0;
+    border-radius: 100px;
+    box-sizing: 16px 20px;
+    padding: 16px 20px;
+    color:  rgb(92, 92, 92);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    overflow: hidden;
+    cursor: pointer;
+}
+.Perfil:focus .dropmenu, .Perfil:active .dropmenu{
+    transform: translate(0,20px);
+    opacity: 1;
+    visibility: visible;
+}
+.Perfil .dropmenu{
+    position: absolute;
+    top: 75%;
+    left:50%;
+    background:  rgb(255, 255, 255);
+    width: 50%;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(rgba(207, 207, 207, 0.1));
+    text-align: left;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+.Perfil .dropmenu:before {                                     
+    content:"";
+    position: absolute;
+    top: -5px;
+    left: 80%;
+    width: 0;
+    height: 0;
+    box-shadow: 2px -2px 6px rgba(255, 255, 255, 0.5);
+    border-top: 6px solid #9c9c9c;
+    border-right: 6px solid #9c9c9c;
+    border-left: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    transform: rotate(-45deg);
+    mix-blend-mode: multiply;
+
+}
+.Perfil .dropmenu li {
+    z-index: 1;
+    position: relative;
+    background: #ffffff;
+    padding: 0 20px;
+    color: rgb(199, 199, 199);
+    border: 1px solid #e9e9e9;
+
+}
+.Perfil .dropmenu li.active {
+    color:  #666;
+}
+
+.Perfil .dropmenu li:first-child {
+    border-radius: 4px 4px 0 0;
+}
+
+.Perfil .dropmenu li:last-child {
+    border-radius: 0 0 4px 4px;
+}
+
+.Perfil .dropmenu li:last-child a {
+    border-bottom: 0;
+}
+
+.Perfil .dropmenu a{
+    display: block;
+    border-bottom: 1px solid rgba(163, 163, 163, 0.05);
+    padding: 16px 0;
+    color: rgb(134, 134, 134);
+    font-size: 10px;
+    text-decoration: none;
+}
+
+@-webkit-keyframes ripple{
+    0%{
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1),0 0 0 20px rgba(255, 255, 255, 0.1),
+        0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1);
+    }   
+    100%{
+        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1),
+        0 0 0 60px rgba(255, 255, 255, 0.1) 0 0 0 80px rgba(255, 255, 255, 0.1);
+    }
+}
+@keyframes ripple{
+    0%{
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1),0 0 0 20px rgba(255, 255, 255, 0.1),
+    0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1);
+    }
+    100%{
+        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1),
+        0 0 0 60px rgba(255, 255, 255, 0.1) 0 0 0 80px rgba(255, 255, 255, 0.1);
+    }
+}
+
+.categorias{
+    height: 55%;
+    width: 100%;
+    border-bottom: 1px solid rgb(207, 207, 207);
+}
+.categoriaslist{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    gap: 1% 1%;
+}
+
+.contenedorcategorias{
+    height: 100%;
+    width: 8%;
+    display: flex;
+
+}
+.btncategorias{
+height: 100%;
+width: 100%;
+font-family: Roboto, sans-serif;
+font-size: 10px;
+color: #8f8f8f;
+background-color: #ffffff;
+padding: 1% 1%;
+border: solid #e0e0e0 0px;
+box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+border-radius: 1px;
+display: flex;
+align-items: center;
+cursor: pointer;
+align-content: center;
+flex-wrap: wrap;
+justify-content: center;
+}
+.imgc{
+    background-color: #0066cc;
+    height: 50%;
+    width: 50%;
+}
+
+
+.containeremprendimientos{
+    width: 100%;
+    height: auto;
+}
+.emprendimientolist{
+    display: flex;
+    gap:10px 10px;
+    height: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.contenedoremprendimientos{
+    margin-top: 10px;
+    height: 450px;
+    width: 23%;
+    min-width: 250px;
+    border: none;
+}
+.btnemprendimiento{
+    width: 100%;
+    height: 100%; 
+    border-radius: 25px;
+    border: none;
+    align-items: flex-start;
+}
+
+.imge{
+    height: 50%;
+    align-items: flex-start;
+
+
+}
+
+.About{
+    padding: 10%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

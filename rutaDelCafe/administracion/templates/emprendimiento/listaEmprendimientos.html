@@ -1,0 +1,79 @@
+{% extends "comun/base.html" %}
+{% block content %}
+
+<section class="contenedorTodo">
+  <div class="container" >
+        <div class="menuOpciones">
+          <div class="contentHorizontal">
+            <div class="contenedor-logo">
+              <button class="logo" >
+                <div>
+                    <a href="http://127.0.0.1:8000/administracion/index">
+                      <img  class="rutacafe"src="https://www.uide.edu.ec/wp-content/uploads/2018/11/uide-1.png">   
+                    </a>
+                  </div>
+              </button>
+            </div>
+            <div class="searchEmprendimientos">
+                  <div class="buscador">
+                    <input class="caja-busqueda" id="search" type="search" placeholder="Search" aria-label="Search">
+                    <button class="icon"><i class="fas fa-search"></i></button>  
+                  </div>
+            </div>
+            <div class="inicio">
+                <div class="idioma">
+                  <button class="bidioma"><i class="fas fa-language"></i></button>
+                </div> 
+                <div class="position_inicio">
+                  <div class="inicioSesion"> 
+                    <button class="Perfil">
+                      <span>Acceso</span>
+                      <i class="fas fa-user"></i>
+                      <ul class="dropmenu">
+                        <li class="active"><a href="http://127.0.0.1:8000/admin/login/?next=/admin/">Admin Site</a></li>
+                        <li><a href="#"></a></li>
+                        
+                      </ul>
+                    </button>
+                  </div>
+                </div>
+            </div>
+            
+          </div>
+          <div class="categorias">
+            <div class="categoriaslist">
+              {% for categoria in categorias  %}
+              <div class="contenedorcategorias">
+                <button class="btncategorias">
+                  <a href="/administrativo/emprendimientos/listado/{{ servicio.id }}">
+                  <img  class="imgc" src="/fotoNegocio/Imagen_Corporativa.jpg" class="card-img-top"> 
+                    <h5 class="card-title">{{ servicio.nombreS }} </h5>
+                </button>
+              </div>
+              {% endfor  %}
+            </div>
+          </div>   
+        </div>
+        <div class="emprendimientos">
+            <div class="emprendimientolist">
+                {% for emprendimiento in emprendimientos  %}
+                <div class="contenedoremprendimientos">
+                    
+                    <button class="btnemprendimiento">
+                        <a href="/administracion/emprendimientos/emprendimiento/{{ emprendimiento.id }}">
+                        <h5 class="card-title">{{ emprendimiento.nombreEmprendimiento }} </h5>
+                        <img src="/fotoCategoria/uide-1_WbCoGr1.png" alt="" class="imge">
+                        <div class="cardtext">
+                            <p class="card-text">Direccion:{{ emprendimiento.direccion }} </p>
+                            <p class="card-text">Apertura:{{ emprendimiento.horaApertura }}</p>
+                            <p class="card-text">Cierre:{{ emprendimiento.horaCierre }} </p>
+                        </div>
+                        </a>
+                    </button>
+                </div>
+                {% endfor  %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

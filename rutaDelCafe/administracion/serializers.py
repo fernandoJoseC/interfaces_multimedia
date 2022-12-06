@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Emprendimiento, Servicios, Multimedia, Productos, Persona, Cliente, Administrador, Emprendedor, Reservas
+from .models import Emprendimiento, Servicios, Multimedia, Productos, Persona, Cliente, Administrador, Emprendedor, Reservas, Rol
 
 class EmprendimientoSerializers(serializers.ModelSerializer):
     class Meta:

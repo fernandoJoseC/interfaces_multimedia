@@ -13,3 +13,22 @@ class reservasForm(forms.Form):
     #add tipo de productos a comprar para reservarlos
     #productos = forms.ManyToManyField(Productos)
 
+class reservaFormulario(forms.ModelForm):
+	class Meta:
+		fields=[
+			'fechaReserva',
+			'emprendimiento',
+			'cantidad',
+			'valor'
+		]
+
+		labels={
+			'fechaReserva':'Fecha de la reservacion',
+			'emprendimiento':'Emprendimiento',
+			'cantidad':'Cantidad del producto',
+			'valor':'Costo'
+		}
+		widgets={
+			'fechaReserva':forms.DateInput(format=('%d-%m-%y'),attrs={'type':'date'})
+		}
+
