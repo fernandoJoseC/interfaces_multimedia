@@ -79,17 +79,14 @@ WSGI_APPLICATION = 'rutaDelCafe.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'rutaCafe',
-        'USER': 'postgres',
-        'PASSWORD': '1234567890',
+        'NAME': 'rutaCafe', #
+        'USER': 'postgres', #grupo3
+        'PASSWORD': '1234567890',   #grupo3@12345
         'HOST': 'localhost',
         'PORT': '5432',
     }
-    
-
 }
 
 
