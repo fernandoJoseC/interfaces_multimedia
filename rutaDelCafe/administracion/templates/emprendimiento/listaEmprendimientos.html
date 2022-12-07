@@ -40,9 +40,11 @@
             </div>
             
           </div>
+          {{valores}}
           <div class="categorias">
+            
             <div class="categoriaslist">
-              {% for categoria in categorias  %}
+              {% for valor in valores  %}
               <div class="contenedorcategorias">
                 <button class="btncategorias">
                   <a href="/administrativo/emprendimientos/listado/{{ servicio.id }}">

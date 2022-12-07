@@ -25,12 +25,17 @@ class Index(View):
     def get(self,request):
         #servicios=Servicios.objects.all()
         categorias = Emprendimiento.categoria
+        servicios = Servicios.objects.all()
         #print(servicios)
-        valor=[]
-        for categoria in categorias:
+        valores=[]
+        for servicio in servicios:
+            emprendimientos = Emprendimiento.objects.all().filter(servicios=servicio.id)
+            print(emprendimientos)
+            valores.append(emprendimientos)
+        '''for categoria in categorias:
             emprendimientos= Emprendimiento.objects.all().filter(categoria=categoria)
-            valor.append(emprendimientos)
-        return render(request, 'presentacion/index.html', {'categorias':categorias,'emprendimientos':emprendimientos,'valor':valor} )
+            valor.append(emprendimientos)'''
+        return render(request, 'presentacion/index.html', {'categorias':categorias,'emprendimientos':emprendimientos,'valores':valores} )
 
 class GenerarReserva(View):
     def get(self, request):
